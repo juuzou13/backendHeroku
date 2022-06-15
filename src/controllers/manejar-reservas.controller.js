@@ -1,4 +1,5 @@
 const { ReservaActiva, ReservaHistorial } = require("../models/Reserva");
+const mongodb = require("mongodb");
 const reservasController = {};
 
 reservasController.registrarReserva = async (req, res) => {
