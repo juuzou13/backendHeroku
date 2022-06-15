@@ -12,5 +12,6 @@ router.post("/add", token.verifyToken, campus_dep.addDep);
 
 router.get("/getAll", token.verifyToken, campus_dep.getAllCampusDepartamentos);
 router.get("/getByCampus/:nombre_campus", token.verifyToken, campus_dep.getByCampus);
+router.get("/getAllDepartamentos", token.verifyToken, campus_dep.getAllDepartamentos);
 
 module.exports = router;

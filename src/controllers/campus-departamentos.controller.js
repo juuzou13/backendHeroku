@@ -24,4 +24,9 @@ campusDepartamentoController.getByCampus = async (req, res) => {
 
 };
 
+campusDepartamentoController.getAllDepartamentos = async (req, res) => {
+  const foundDepartamentos = await CampusDep.distinct('departamento');
+  res.send(foundDepartamentos)
+};
+
 module.exports = campusDepartamentoController;
