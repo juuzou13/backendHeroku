@@ -43,7 +43,7 @@ reservasController.getReservas = async (req, res) => {
 
 
 reservasController.eliminarReserva = async (req, res) => {
-    await Reserva.deleteOne({ idReserva: req.params.idReserva });
+    await ReservaActiva.deleteOne({ _id: new mongodb.ObjectId(req.params.mongo_id) });
     res.send("Deleted");
 }
 
