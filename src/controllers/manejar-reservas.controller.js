@@ -12,14 +12,9 @@ reservasController.registrarReserva = async (req, res) => {
     res.send("Registered")
 };
 
-reservasController.getForOperador = async (req, res) => {
-    const foundReservasActivas = await ReservaActiva.find({
-        $and: [
-            { $or: [
-                {idReserva: 'VIS'}, 
-                {idReserva: 'OF'}]},
-            { idParqueo: req.body.idParqueo} ]
-    })
+reservasController.getByParqueo = async (req, res) => {
+    const foundReservasActivas = await ReservaActiva.find(
+            { id_parqueo: req.body.idParqueo})
     res.send(foundReservasActivas)
 };
 
