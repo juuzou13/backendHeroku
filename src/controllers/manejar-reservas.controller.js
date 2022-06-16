@@ -12,6 +12,15 @@ reservasController.registrarReserva = async (req, res) => {
     res.send("Registered")
 };
 
+reservasController.getByIdAndParqueo = async (req, res) => {
+    const foundReservasActivas = await ReservaActiva.find({
+        $and: [
+            { idReserva: req.body.idReserva},
+            { idParqueo: req.body.idParqueo} ]
+    })
+    res.send(foundReservasActivas)
+};
+
 reservasController.getByParqueoDia = async (req, res) => {
     const foundReservaActiva = await ReservaActiva.find({idParqueo: req.params.idParqueo, 'rangoHorario.dia' : req.params.dia})
     

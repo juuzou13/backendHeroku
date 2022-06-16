@@ -10,6 +10,7 @@ router.get("/getByParqueoDia/:idParqueo/:dia", token.verifyToken, manejoReservas
 router.post("/getBetweenDates", token.verifyToken, manejoReservasController.getBetweenDates);
 router.get("/getAllReservasActivas", token.verifyToken, manejoReservasController.getReservas);
 router.delete("/deleteReservaActiva/:mongo_id", token.verifyToken, manejoReservasController.eliminarReserva);
+router.get("/getByIdAndParqueo/:idReserva/:idParqueo", token.verifyToken, manejoReservasController.getByIdAndParqueo);
 // router.get("/get-elegibles", token.verifyToken, manejoPlantillaController.getElegibles);
 // router.post("/add/:cedula_funcionario", token.verifyToken, manejoPlantillaController.addOneFuncionario);
 // router.post("/delete/:cedula_funcionario", token.verifyToken, manejoPlantillaController.deleteOneFuncionario);
