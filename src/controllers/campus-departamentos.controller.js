@@ -26,7 +26,7 @@ campusDepartamentoController.getByCampus = async (req, res) => {
 
 campusDepartamentoController.getAllDepartamentos = async (req, res) => {
   const foundDepartamentos = await CampusDep.distinct('departamento');
-  console.log('foundDepartamentos', foundDepartamentos);
+  console.log('foundDepartamentos1', foundDepartamentos);
   res.send(foundDepartamentos)
 };
 
