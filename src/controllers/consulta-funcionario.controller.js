@@ -81,46 +81,18 @@ consultaFuncionarioController.borrarFuncionario = async (req, res) => {
 }
 
 consultaFuncionarioController.getHorariosAdm = async (req, res) => {
-  horarios = []
-  
   const foundFuncionarios = await Funcionario.find({'tipo_funcionario': "Administrador", 'departamentos.campus': req.params.campus})
-  for (let index = 0; index < foundFuncionarios.length; index++) {
-    //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-    for (let index2 = 0; index2 < foundFuncionarios[index].horario.length; index2++) {
-      //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-      horarios.push(foundFuncionarios[index].horario[index2])
-    }
-  }
-  res.send(horarios)
+  res.send(foundFuncionarios)
 }
 
 consultaFuncionarioController.getHorariosDoc = async (req, res) => {
-  horarios = []
-  
   const foundFuncionarios = await Funcionario.find({'tipo_funcionario': "Docente", 'departamentos.campus': req.params.campus})
-  for (let index = 0; index < foundFuncionarios.length; index++) {
-    //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-    for (let index2 = 0; index2 < foundFuncionarios[index].horario.length; index2++) {
-      //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-      horarios.push(foundFuncionarios[index].horario[index2])
-    }
-  }
-  res.send(horarios)
+  res.send(foundFuncionarios)
 }
 
-
 consultaFuncionarioController.getHorariosAmbos = async (req, res) => {
-  horarios = []
-  
   const foundFuncionarios = await Funcionario.find({'departamentos.campus': req.params.campus})
-  for (let index = 0; index < foundFuncionarios.length; index++) {
-    //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-    for (let index2 = 0; index2 < foundFuncionarios[index].horario.length; index2++) {
-      //console.log(placasFuncionario.placas_asociadas[index].codigo_placa);  
-      horarios.push(foundFuncionarios[index].horario[index2])
-    }
-  }
-  res.send(horarios)
+  res.send(foundFuncionarios)
 }
 
 module.exports = consultaFuncionarioController;
