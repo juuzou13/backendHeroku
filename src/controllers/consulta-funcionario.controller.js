@@ -83,16 +83,19 @@ consultaFuncionarioController.borrarFuncionario = async (req, res) => {
 consultaFuncionarioController.getHorariosAdm = async (req, res) => {
   const foundFuncionarios = await Funcionario.find({'tipo_funcionario': "Administrador", 'departamentos.campus': req.params.campus})
   res.send(foundFuncionarios)
+
 }
 
 consultaFuncionarioController.getHorariosDoc = async (req, res) => {
   const foundFuncionarios = await Funcionario.find({'tipo_funcionario': "Docente", 'departamentos.campus': req.params.campus})
   res.send(foundFuncionarios)
+
 }
 
 consultaFuncionarioController.getHorariosAmbos = async (req, res) => {
   const foundFuncionarios = await Funcionario.find({'departamentos.campus': req.params.campus})
   res.send(foundFuncionarios)
+  
 }
 
 module.exports = consultaFuncionarioController;
